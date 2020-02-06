@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        presenter.onAttach(this);
+        presenter.onViewCreated();
     }
 
     @Override
@@ -21,5 +23,5 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onDestroy();
     }
 
-    
+
 }
