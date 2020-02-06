@@ -20,4 +20,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         presenter.onDestroy();
         super.onDestroy();
     }
+
+    
 }
