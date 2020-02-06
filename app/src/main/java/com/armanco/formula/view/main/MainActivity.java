@@ -17,13 +17,14 @@ import static java.security.AccessController.getContext;
 public class MainActivity extends AppCompatActivity implements MainContract.View, SectionAdapter.ItemClickListener {
 
     private MainPresenter presenter = new MainPresenter();
-    private RecyclerView sectionRecyclerView;
+    private RecyclerView sectionsRecyclerView;
     private SectionAdapter sectionAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sectionsRecyclerView = findViewById(R.id.main_sections_recycler_view);
         presenter.onAttach(this);
         presenter.onViewCreated();
     }
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void showSections(List<Section> sections) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        sectionRecyclerView.setLayoutManager(layoutManager);
+        sectionsRecyclerView.setLayoutManager(layoutManager);
         sectionAdapter = new SectionAdapter(sections, this);
         sectionAdapter.setClickListener(this);
-        sectionRecyclerView.setAdapter(sectionAdapter);
+        sectionsRecyclerView.setAdapter(sectionAdapter);
     }
 
     @Override
