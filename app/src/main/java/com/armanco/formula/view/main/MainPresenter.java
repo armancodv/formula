@@ -26,4 +26,5 @@ public class MainPresenter implements MainContract.Presenter {
     public void onDestroy() {
         this.view = null;
     }
+
 }

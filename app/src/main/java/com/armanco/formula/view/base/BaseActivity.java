@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.armanco.formula.di.DependencyInjector;
 import com.armanco.formula.di.DependencyInjectorImpl;
 
-public abstract class BaseActivity extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity extends AppCompatActivity implements BaseContract.View {
     DependencyInjector dependencyInjector = new DependencyInjectorImpl();
-    BasePresenter<BaseView> presenter;
+    BaseContract.Presenter<BaseContract.View> presenter;
 
     @Override
     protected void onDestroy() {

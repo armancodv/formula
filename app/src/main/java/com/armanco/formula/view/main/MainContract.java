@@ -1,17 +1,16 @@
 package com.armanco.formula.view.main;
 
 import com.armanco.formula.data.models.Section;
-import com.armanco.formula.view.base.BasePresenter;
-import com.armanco.formula.view.base.BaseView;
+import com.armanco.formula.view.base.BaseContract;
 
 import java.util.List;
 
 public interface MainContract {
-    interface View extends BaseView {
+    interface View extends BaseContract.View {
         void showSections(List<Section> sections);
 
     }
-    interface Presenter extends BasePresenter<MainContract.View> {
+    interface Presenter extends BaseContract.Presenter<MainContract.View> {
 
     }
 }
