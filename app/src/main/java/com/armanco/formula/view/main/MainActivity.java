@@ -9,12 +9,11 @@ import android.view.View;
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
+import com.armanco.formula.view.base.BaseActivity;
 
 import java.util.List;
 
-import static java.security.AccessController.getContext;
-
-public class MainActivity extends AppCompatActivity implements MainContract.View, SectionAdapter.ItemClickListener {
+public class MainActivity extends BaseActivity implements MainContract.View, SectionAdapter.ItemClickListener {
 
     private MainPresenter presenter = new MainPresenter();
     private RecyclerView sectionsRecyclerView;
@@ -28,13 +27,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         presenter.onAttach(this);
         presenter.onViewCreated();
     }
-
-    @Override
-    protected void onDestroy() {
-        presenter.onDestroy();
-        super.onDestroy();
-    }
-
 
     @Override
     public void showSections(List<Section> sections) {
