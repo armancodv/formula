@@ -17,7 +17,6 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sec
 
     private MainPresenter presenter = new MainPresenter();
     private RecyclerView sectionsRecyclerView;
-    private SectionAdapter sectionAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +27,19 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sec
         presenter.onViewCreated();
     }
 
+
+    @Override
+    protected void onDestroy() {
+        presenter.onDestroy();
+        super.onDestroy();
+    }
+
+
     @Override
     public void showSections(List<Section> sections) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         sectionsRecyclerView.setLayoutManager(layoutManager);
-        sectionAdapter = new SectionAdapter(sections, this);
+        SectionAdapter sectionAdapter = new SectionAdapter(sections, this);
         sectionAdapter.setClickListener(this);
         sectionsRecyclerView.setAdapter(sectionAdapter);
     }
