@@ -1,13 +1,17 @@
 package com.armanco.formula.data.models;
 
 public class Section {
-    public int id;
-    public String name;
+    public int nameId;
+    public int descriptionId;
     public int imageId;
+    public int colorId;
+    public Class activityClass;
 
-    public Section(int id, String name, int imageId) {
-        this.id = id;
-        this.name = name;
+    public Section(int nameId, int descriptionId, int imageId, int colorId, Class activityClass) {
+        this.nameId = nameId;
+        this.descriptionId = descriptionId;
         this.imageId = imageId;
+        this.colorId = colorId;
+        this.activityClass = activityClass;
     }
 }

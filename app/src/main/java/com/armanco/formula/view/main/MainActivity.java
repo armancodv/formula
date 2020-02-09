@@ -2,8 +2,9 @@ package com.armanco.formula.view.main;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.armanco.formula.R;
@@ -20,7 +21,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     private RecyclerView sectionsRecyclerView;
     private CardSliderLayoutManager sectionLayoutManager;
     private SectionAdapter sectionAdapter;
-    private TextView titleTv;
+    private TextView titleTv, descriptionTv;
+    private RelativeLayout mainRl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         setContentView(R.layout.activity_main);
         sectionsRecyclerView = findViewById(R.id.main_sections_recycler_view);
         titleTv = findViewById(R.id.main_section_title);
+        descriptionTv = findViewById(R.id.main_section_description);
+        mainRl = findViewById(R.id.main);
         presenter.onAttach(this);
         presenter.onViewCreated();
     }
@@ -59,14 +63,17 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     public void onSectionScrolled() {
-        int pos = sectionLayoutManager.getActiveCardPosition();
-        if (pos != RecyclerView.NO_POSITION) {
-            presenter.onSectionChanged(pos);
+        int position = sectionLayoutManager.getActiveCardPosition();
+        if (position != RecyclerView.NO_POSITION) {
+            presenter.onSectionChanged(position);
         }
     }
 
     @Override
     public void changeSectionData(Section section) {
-        titleTv.setText(section.name);
+        titleTv.setText(getString(section.nameId));
+        descriptionTv.setText(getString(section.descriptionId));
+        mainRl.setBackgroundColor(Color.parseColor(getString(section.colorId)));
+        setStatusBarColor(section.colorId);
     }
 }

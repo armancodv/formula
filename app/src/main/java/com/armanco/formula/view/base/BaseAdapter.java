@@ -17,11 +17,13 @@ public abstract class BaseAdapter<D, L, V extends RecyclerView.ViewHolder> exten
     protected int position;
     protected D item;
     protected int layoutId;
+    protected Context context;
 
     public BaseAdapter(List<D> data, Context context, int layoutId) {
         this.data = data;
         this.inflater = LayoutInflater.from(context);
         this.layoutId = layoutId;
+        this.context = context;
     }
 
     @Override

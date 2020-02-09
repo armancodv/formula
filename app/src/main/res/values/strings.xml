@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Formula</string>
+    <string name="integral_title">Integral</string>
+    <string name="integral_description">Integral Description</string>
+    <string name="trigonometry_title">Trigonometry</string>
+    <string name="trigonometry_description">Integral Description</string>
+    <string name="differential_title">Differential</string>
+    <string name="differential_description">Integral Description</string>
 </resources>

@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="integral">#4dc7bc</color>
+    <color name="trigonometry">#ff6d3f</color>
+    <color name="differential">#ffdf49</color>
+
+    <color name="black">#000</color>
 </resources>

@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.main.MainActivity">
+    tools:context=".view.main.MainActivity"
+    android:id="@+id/main">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_sections_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="400dp" />
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_section_title"
-        android:layout_below="@+id/main_sections_recycler_view" />
+        android:layout_below="@+id/main_sections_recycler_view"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_section_description"
+        android:layout_below="@+id/main_section_title"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="10dp" />
 </RelativeLayout>

@@ -1,13 +1,12 @@
 package com.armanco.formula.view.main;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
@@ -33,16 +32,16 @@ public class SectionAdapter extends BaseAdapter<Section, Listener.SectionClickLi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        holder.nameTv.setText(item.name);
+        holder.imageView.setImageResource(item.imageId);
     }
 
     public class ViewHolder extends BaseViewHolder {
 
-        TextView nameTv;
+        ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            nameTv = itemView.findViewById(R.id.section_name);
+            imageView = itemView.findViewById(R.id.section_image);
         }
 
         @Override
