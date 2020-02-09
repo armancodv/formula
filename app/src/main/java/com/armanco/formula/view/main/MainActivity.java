@@ -4,8 +4,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
@@ -32,6 +34,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         titleTv = findViewById(R.id.main_section_title);
         descriptionTv = findViewById(R.id.main_section_description);
         mainRl = findViewById(R.id.main);
+
         presenter.onAttach(this);
         presenter.onViewCreated();
     }
