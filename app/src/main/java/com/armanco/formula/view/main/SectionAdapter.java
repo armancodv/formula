@@ -11,60 +11,47 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
+import com.armanco.formula.utils.Listener;
+import com.armanco.formula.view.base.BaseAdapter;
+import com.armanco.formula.view.base.BaseViewHolder;
 
 import java.util.List;
 
-public class SectionAdapter extends RecyclerView.Adapter<SectionAdapter.ViewHolder> {
-    private List<Section> data;
-    private LayoutInflater inflater;
-    private ItemClickListener itemClickListener;
+public class SectionAdapter extends BaseAdapter<Section, Listener.SectionClickListener, SectionAdapter.ViewHolder> {
 
-    public SectionAdapter(List<Section> data, Context context) {
-        this.data = data;
-        this.inflater = LayoutInflater.from(context);
+    public SectionAdapter(List<Section> data, Context context, int layoutId) {
+        super(data, context, layoutId);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_section, parent, false);
+        View view = inflater.inflate(layoutId, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Section item = data.get(position);
+        super.onBindViewHolder(holder, position);
         holder.nameTv.setText(item.name);
     }
 
-    @Override
-    public int getItemCount() {
-        return data.size();
-    }
+    public class ViewHolder extends BaseViewHolder {
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nameTv;
+
         public ViewHolder(View itemView) {
             super(itemView);
             nameTv = itemView.findViewById(R.id.section_name);
-            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if(itemClickListener != null) itemClickListener.onSectionClick(v, getAdapterPosition(), data.get(getAdapterPosition()));
+            if(itemClickListener != null) {
+                itemClickListener.onSectionClick(v, getAdapterPosition(), data.get(getAdapterPosition()));
+            }
         }
-    }
 
-    public Section getItem(int id) {
-        return data.get(id);
-    }
 
-    public void setClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
-    public interface ItemClickListener {
-        void onSectionClick(View view, int position, Section section);
     }
 }
