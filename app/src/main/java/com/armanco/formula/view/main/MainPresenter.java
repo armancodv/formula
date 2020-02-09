@@ -13,17 +13,29 @@ import java.util.List;
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter, Listener.SectionClickListener {
 
     private SectionRepository sectionRepository = new SectionRepositoryImpl();
+    private List<Section> sections;
+    private Section selectedSection;
 
     @Override
     public void onViewCreated() {
-        List<Section> sections = sectionRepository.getAll();
+        sections = sectionRepository.getAll();
         view.showSections(sections);
+        selectedSection = sections.get(0);
+        view.changeSectionData(selectedSection);
+    }
+
+    @Override
+    public void onSectionClick(int position) {
+        Section section = sections.get(position);
 
     }
 
     @Override
-    public void onSectionClick(View view, int position, Section section) {
-
+    public void onSectionChanged(int position) {
+        Section section = sections.get(position);
+        if(!section.equals(selectedSection)) {
+            view.changeSectionData(section);
+            selectedSection = section;
+        }
     }
-
 }

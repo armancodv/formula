@@ -6,6 +6,6 @@ import com.armanco.formula.data.models.Section;
 
 public interface Listener {
     interface SectionClickListener {
-        void onSectionClick(View view, int position, Section section);
+        void onSectionClick(int position);
     }
 }

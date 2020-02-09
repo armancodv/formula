@@ -48,7 +48,7 @@ public class SectionAdapter extends BaseAdapter<Section, Listener.SectionClickLi
         @Override
         public void onClick(View v) {
             if(itemClickListener != null) {
-                itemClickListener.onSectionClick(v, getAdapterPosition(), data.get(getAdapterPosition()));
+                itemClickListener.onSectionClick(getAdapterPosition());
             }
         }
 
