@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Formula;
+import com.armanco.formula.data.models.Section;
 import com.armanco.formula.view.base.BaseActivity;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 
@@ -39,9 +40,9 @@ public class SectionActivity extends BaseActivity implements SectionContract.Vie
     }
 
     @Override
-    public void showFormulas(List<Formula> formulas) {
+    public void showPager(List<Section> sections) {
         viewPager = materialViewPager.getViewPager();
-        viewPager.setAdapter(new SectionFragmentStatePagerAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new SectionFragmentStatePagerAdapter(getSupportFragmentManager(), sections, getApplicationContext()));
         materialViewPager.getPagerTitleStrip().setViewPager(materialViewPager.getViewPager());
 
     }

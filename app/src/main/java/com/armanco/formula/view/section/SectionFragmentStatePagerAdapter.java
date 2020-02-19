@@ -1,14 +1,25 @@
 package com.armanco.formula.view.section;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.armanco.formula.data.models.Section;
+
+import java.util.List;
+
 public class SectionFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
 
-    public SectionFragmentStatePagerAdapter(@NonNull FragmentManager fm) {
+    private List<Section> sections;
+    private Context context;
+
+    public SectionFragmentStatePagerAdapter(@NonNull FragmentManager fm, List<Section> sections, Context context) {
         super(fm);
+        this.sections = sections;
+        this.context = context;
     }
 
     @Override
@@ -27,21 +38,11 @@ public class SectionFragmentStatePagerAdapter extends FragmentStatePagerAdapter 
 
     @Override
     public int getCount() {
-        return 4;
+        return sections.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position % 4) {
-            case 0:
-                return "Selection";
-            case 1:
-                return "Actualités";
-            case 2:
-                return "Professionnel";
-            case 3:
-                return "Divertissement";
-        }
-        return "";
+        return context.getResources().getString(sections.get(position).nameId);
     }
 }
