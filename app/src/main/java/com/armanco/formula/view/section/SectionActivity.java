@@ -41,17 +41,7 @@ public class SectionActivity extends BaseActivity implements SectionContract.Vie
     @Override
     public void showFormulas(List<Formula> formulas) {
         viewPager = materialViewPager.getViewPager();
-        viewPager.setAdapter(new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return 0;
-            }
-
-            @Override
-            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-                return false;
-            }
-        });
+        viewPager.setAdapter(new SectionFragmentStatePagerAdapter(getSupportFragmentManager()));
         materialViewPager.getPagerTitleStrip().setViewPager(materialViewPager.getViewPager());
 
     }
