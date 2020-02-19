@@ -1,7 +1,5 @@
 package com.armanco.formula.view.main;
 
-import android.view.View;
-
 import com.armanco.formula.data.models.Section;
 import com.armanco.formula.data.repositories.SectionRepository;
 import com.armanco.formula.data.repositories.SectionRepositoryImpl;
