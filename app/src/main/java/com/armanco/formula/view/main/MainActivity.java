@@ -1,6 +1,7 @@
 package com.armanco.formula.view.main;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -17,6 +18,9 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     private MainPresenter presenter = new MainPresenter();
     private MaterialViewPager materialViewPager;
     private ViewPager viewPager;
+
+    private TextView headerTv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         viewPager = materialViewPager.getViewPager();
         viewPager.setAdapter(new SectionAdapter(getSupportFragmentManager(), sections, getApplicationContext()));
         materialViewPager.getPagerTitleStrip().setViewPager(materialViewPager.getViewPager());
+        headerTv = viewPager.findViewById(R.id.logo_white);
         materialViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
             @Override
             public HeaderDesign getHeaderDesign(int page) {
