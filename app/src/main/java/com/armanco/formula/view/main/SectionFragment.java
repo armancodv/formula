@@ -1,4 +1,4 @@
-package com.armanco.formula.view.section;
+package com.armanco.formula.view.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

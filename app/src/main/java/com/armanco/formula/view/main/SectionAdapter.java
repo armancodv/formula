@@ -1,56 +1,39 @@
 package com.armanco.formula.view.main;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
-import com.armanco.formula.utils.Listener;
-import com.armanco.formula.view.base.BaseAdapter;
-import com.armanco.formula.view.base.BaseViewHolder;
 
 import java.util.List;
 
-public class SectionAdapter extends BaseAdapter<Section, Listener.SectionClickListener, SectionAdapter.ViewHolder> {
+public class SectionAdapter extends FragmentStatePagerAdapter {
 
-    public SectionAdapter(List<Section> data, Context context, int layoutId) {
-        super(data, context, layoutId);
-    }
+    private List<Section> sections;
+    private Context context;
 
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(layoutId, parent, false);
-        return new ViewHolder(view);
+    public SectionAdapter(@NonNull FragmentManager fm, List<Section> sections, Context context) {
+        super(fm);
+        this.sections = sections;
+        this.context = context;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        super.onBindViewHolder(holder, position);
-        holder.imageView.setImageResource(item.imageId);
+    public Fragment getItem(int position) {
+        return new SectionFragment();
     }
 
-    public class ViewHolder extends BaseViewHolder {
+    @Override
+    public int getCount() {
+        return sections.size();
+    }
 
-        ImageView imageView;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.section_image);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if(itemClickListener != null) {
-                itemClickListener.onSectionClick(getAdapterPosition());
-            }
-        }
-
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return context.getResources().getString(sections.get(position).nameId);
     }
 }

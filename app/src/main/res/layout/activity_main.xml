@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.main.MainActivity"
-    android:id="@+id/main">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_sections_recycler_view"
+    android:layout_height="match_parent">
+    <com.github.florent37.materialviewpager.MaterialViewPager
+        android:id="@+id/materialViewPager"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp" />
+        android:layout_height="match_parent"
+        app:viewpager_logo="@layout/header_logo"
+        app:viewpager_logoMarginTop="100dp"
+        app:viewpager_color="@color/colorPrimary"
+        app:viewpager_headerHeight="200dp"
+        app:viewpager_headerAlpha="1.0"
+        app:viewpager_hideLogoWithFade="false"
+        app:viewpager_hideToolbarAndTitle="true"
+        app:viewpager_enableToolbarElevation="true"
+        app:viewpager_parallaxHeaderFactor="1.5"
+        app:viewpager_headerAdditionalHeight="20dp"
+        app:viewpager_displayToolbarWhenSwipe="true"
+        app:viewpager_transparentToolbar="true"
+        app:viewpager_animatedHeaderImage="true"
+        app:viewpager_disableToolbar="false"
+        app:viewpager_pagerTitleStrip="@layout/material_view_pager_pagertitlestrip_newstand"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_section_title"
-        android:layout_below="@+id/main_sections_recycler_view"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_section_description"
-        android:layout_below="@+id/main_section_title"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="10dp" />
-
-    <Button
-        android:id="@+id/main_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:text="Show"/>
-</RelativeLayout>
+        />
+</LinearLayout>
