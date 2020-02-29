@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.armanco.formula.data.models.Section;
+import com.armanco.formula.view.section.SectionFragment;
 
 import java.util.List;
 
