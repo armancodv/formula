@@ -22,7 +22,11 @@ public class RepositoryImpl implements Repository {
     public List<SubSection> getAllSubSections(int sectionId) {
         switch (sectionId) {
             case R.string.integral_title:
-                return Arrays.asList();
+                return Arrays.asList(
+                        new SubSection(R.string.integral_title, null),
+                        new SubSection(R.string.integral_title, null),
+                        new SubSection(R.string.integral_title, null)
+                );
             case R.string.trigonometry_title:
                 return Arrays.asList();
             case R.string.differential_title:
