@@ -1,10 +1,13 @@
 package com.armanco.formula.view.main;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
 import com.armanco.formula.view.base.BaseActivity;
+import com.armanco.formula.view.section.SectionActivity;
 import com.ramotion.cardslider.CardSliderLayoutManager;
 import com.ramotion.cardslider.CardSnapHelper;
 
@@ -25,6 +29,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     private SectionAdapter sectionAdapter;
     private TextView titleTv, descriptionTv;
     private RelativeLayout mainRl;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +39,17 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         titleTv = findViewById(R.id.main_section_title);
         descriptionTv = findViewById(R.id.main_section_description);
         mainRl = findViewById(R.id.main);
+        button = findViewById(R.id.button);
 
         presenter.onAttach(this);
         presenter.onViewCreated();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showActivity(SectionActivity.class);
+            }
+        });
     }
 
 
@@ -58,7 +71,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         sectionLayoutManager.getActiveCardPosition();
         sectionsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 onSectionScrolled();
             }
         });

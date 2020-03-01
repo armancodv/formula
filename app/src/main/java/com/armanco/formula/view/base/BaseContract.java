@@ -4,6 +4,7 @@ public interface BaseContract {
     interface View {
         void showToast(String message);
         void setStatusBarColor(int color);
+        void showActivity(Class activityClass);
     }
 
     interface Presenter<V extends BaseContract.View> {
