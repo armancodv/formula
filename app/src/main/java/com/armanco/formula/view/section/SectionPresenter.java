@@ -6,5 +6,6 @@ public class SectionPresenter extends BasePresenter<SectionContract.View> implem
 
     @Override
     public void onViewCreated() {
+        super.onViewCreated();
     }
 }

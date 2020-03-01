@@ -18,7 +18,7 @@ import java.util.List;
 
 public class SectionAdapter extends BaseAdapter<Section, Listener.SectionClickListener, SectionAdapter.ViewHolder> {
 
-    public SectionAdapter(List<Section> data, Context context, int layoutId) {
+    SectionAdapter(List<Section> data, Context context, int layoutId) {
         super(data, context, layoutId);
     }
 

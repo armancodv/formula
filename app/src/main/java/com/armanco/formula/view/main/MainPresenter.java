@@ -10,12 +10,12 @@ import java.util.List;
 
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter, Listener.SectionClickListener {
 
-    private Repository repository = new RepositoryImpl();
     private List<Section> sections;
     private Section selectedSection;
 
     @Override
     public void onViewCreated() {
+        super.onViewCreated();
         sections = repository.getAllSections();
         view.showSections(sections);
         selectedSection = sections.get(0);
