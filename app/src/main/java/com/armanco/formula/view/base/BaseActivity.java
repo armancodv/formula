@@ -1,6 +1,5 @@
 package com.armanco.formula.view.base;
 
-import android.content.Intent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -25,9 +24,5 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseCont
         }
     }
 
-    @Override
-    public void showActivity(Class activityClass) {
-        Intent intent = new Intent(this, activityClass);
-        startActivity(intent);
-    }
+
 }

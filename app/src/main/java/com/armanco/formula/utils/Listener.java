@@ -8,4 +8,7 @@ public interface Listener {
     interface SectionClickListener {
         void onSectionClick(int position);
     }
+    interface FormulaClickListener {
+        void onFormulaClick(int position);
+    }
 }

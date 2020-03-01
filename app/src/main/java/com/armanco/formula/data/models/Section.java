@@ -1,17 +1,17 @@
 package com.armanco.formula.data.models;
 
-import java.util.List;
-
 public class Section {
     public int nameId;
     public int descriptionId;
+    public int imageId;
     public int colorId;
-    public List<SubSection> subSections;
+    public Class activityClass;
 
-    public Section(int nameId, int descriptionId, int colorId, List<SubSection> subSections) {
+    public Section(int nameId, int descriptionId, int imageId, int colorId, Class activityClass) {
         this.nameId = nameId;
         this.descriptionId = descriptionId;
+        this.imageId = imageId;
         this.colorId = colorId;
-        this.subSections = subSections;
+        this.activityClass = activityClass;
     }
 }

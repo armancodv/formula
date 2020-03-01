@@ -3,18 +3,22 @@ package com.armanco.formula.view.section;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
-import com.armanco.formula.data.models.SubSection;
+import com.armanco.formula.R;
+import com.armanco.formula.data.models.Formula;
+import com.armanco.formula.data.models.Section;
+import com.armanco.formula.utils.Listener;
 import com.armanco.formula.view.base.BaseAdapter;
 import com.armanco.formula.view.base.BaseViewHolder;
 
 import java.util.List;
 
-public class SubSectionAdapter extends BaseAdapter<SubSection, SubSectionClickListener, SubSectionAdapter.ViewHolder> {
+public class FormulaAdapter extends BaseAdapter<Formula, Listener.FormulaClickListener, FormulaAdapter.ViewHolder> {
 
-    public SubSectionAdapter(List<SubSection> data, Context context, int layoutId) {
+    public FormulaAdapter(List<Formula> data, Context context, int layoutId) {
         super(data, context, layoutId);
     }
 
@@ -32,17 +36,17 @@ public class SubSectionAdapter extends BaseAdapter<SubSection, SubSectionClickLi
 
     public class ViewHolder extends BaseViewHolder {
 
-        ViewHolder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
         }
 
-
         @Override
         public void onClick(View v) {
-            if (itemClickListener != null) {
-                itemClickListener.onSubSectionClick(getAdapterPosition());
+            if(itemClickListener != null) {
+                itemClickListener.onFormulaClick(getAdapterPosition());
             }
-
         }
+
+
     }
 }
