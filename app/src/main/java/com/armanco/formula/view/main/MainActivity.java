@@ -1,10 +1,15 @@
 package com.armanco.formula.view.main;
 
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
+=======
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+>>>>>>> parent of e2cfeba... SectionActivity added
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Section;
@@ -28,7 +33,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
 
+=======
+        sectionsRecyclerView = findViewById(R.id.main_sections_recycler_view);
+        titleTv = findViewById(R.id.main_section_title);
+        descriptionTv = findViewById(R.id.main_section_description);
+        mainRl = findViewById(R.id.main);
+>>>>>>> parent of e2cfeba... SectionActivity added
         presenter.onAttach(this);
         presenter.onViewCreated();
     }
