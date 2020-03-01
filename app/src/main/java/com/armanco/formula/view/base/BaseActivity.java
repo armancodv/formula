@@ -1,18 +1,45 @@
 package com.armanco.formula.view.base;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.armanco.formula.R;
+import com.armanco.formula.data.prefs.Preferences;
+import com.armanco.formula.data.prefs.PreferencesImpl;
+import com.armanco.formula.data.repositories.Repository;
+import com.armanco.formula.data.repositories.RepositoryImpl;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseContract.View {
+    protected Preferences preferences;
+    protected BaseFragment fragment;
+    protected Repository repository;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        preferences = new PreferencesImpl(this, "prefs");
+        repository = new RepositoryImpl();
+    }
+
+
 
     @Override
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showActivity(Class activityClass) {
+        Intent myIntent = new Intent(this, activityClass);
+        startActivity(myIntent);
     }
 
     @Override
@@ -26,8 +53,18 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseCont
     }
 
     @Override
-    public void showActivity(Class activityClass) {
-        Intent intent = new Intent(this, activityClass);
-        startActivity(intent);
+    public Preferences getPreferences() {
+        return preferences;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(fragment!=null) fragment.onBackPressed();
+        else showToast("Error");
+    }
+
+    @Override
+    public Repository getRepository() {
+        return repository;
     }
 }
