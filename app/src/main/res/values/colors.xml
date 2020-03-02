@@ -4,5 +4,6 @@
     <color name="integral">#4dc7bc</color>
     <color name="trigonometry">#ff6d3f</color>
     <color name="differential">#ffdf49</color>
-    <color name="black">#000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 </resources>
