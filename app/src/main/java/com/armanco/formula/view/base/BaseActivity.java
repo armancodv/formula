@@ -1,17 +1,12 @@
 package com.armanco.formula.view.base;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.armanco.formula.R;
 import com.armanco.formula.data.prefs.Preferences;
 import com.armanco.formula.data.prefs.PreferencesImpl;
 import com.armanco.formula.data.repositories.Repository;

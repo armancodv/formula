@@ -1,15 +1,15 @@
-package com.armanco.formula.view.section;
+package com.armanco.formula.view.sub_section;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.armanco.formula.R;
 import com.armanco.formula.data.models.Formula;
-import com.armanco.formula.data.models.Section;
 import com.armanco.formula.utils.Listener;
 import com.armanco.formula.view.base.BaseAdapter;
 import com.armanco.formula.view.base.BaseViewHolder;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class FormulaAdapter extends BaseAdapter<Formula, Listener.FormulaClickListener, FormulaAdapter.ViewHolder> {
 
-    public FormulaAdapter(List<Formula> data, Context context, int layoutId) {
+    FormulaAdapter(List<Formula> data, Context context, int layoutId) {
         super(data, context, layoutId);
     }
 
@@ -32,12 +32,17 @@ public class FormulaAdapter extends BaseAdapter<Formula, Listener.FormulaClickLi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
+        holder.textView.setText(data.get(position).name);
+        Log.d("TESTTEST", position+"");
     }
 
     public class ViewHolder extends BaseViewHolder {
 
-        public ViewHolder(View itemView) {
+        public TextView textView;
+
+        ViewHolder(View itemView) {
             super(itemView);
+            textView = itemView.findViewById(R.id.item_text_view);
         }
 
         @Override

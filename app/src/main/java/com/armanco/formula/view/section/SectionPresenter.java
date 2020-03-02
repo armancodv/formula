@@ -15,4 +15,9 @@ public class SectionPresenter extends BasePresenter<SectionContract.View> implem
         subSections = repository.getAllSubSections(R.string.integral_title);
         view.showViewPager(subSections);
     }
+
+    @Override
+    public int getSectionPosition() {
+        return 0;
+    }
 }

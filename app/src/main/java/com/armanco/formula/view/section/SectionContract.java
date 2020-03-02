@@ -12,5 +12,6 @@ public interface SectionContract extends BaseContract {
         void showViewPager(List<SubSection> subSections);
     }
     interface Presenter extends BaseContract.Presenter<SectionContract.View> {
+        int getSectionPosition();
     }
 }

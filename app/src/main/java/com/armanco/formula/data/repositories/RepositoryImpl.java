@@ -23,9 +23,17 @@ public class RepositoryImpl implements Repository {
         switch (sectionId) {
             case R.string.integral_title:
                 return Arrays.asList(
-                        new SubSection(R.string.integral_title, null),
-                        new SubSection(R.string.integral_title, null),
-                        new SubSection(R.string.integral_title, null)
+                        new SubSection(R.string.integral_rational, getAllFormulas(R.string.integral_rational)),
+                        new SubSection(R.string.integral_exponential, getAllFormulas(R.string.integral_exponential)),
+                        new SubSection(R.string.integral_logarithms, getAllFormulas(R.string.integral_logarithms)),
+                        new SubSection(R.string.integral_trigonometric, getAllFormulas(R.string.integral_trigonometric)),
+                        new SubSection(R.string.integral_inverse_trigonometric, getAllFormulas(R.string.integral_inverse_trigonometric)),
+                        new SubSection(R.string.integral_hyperbolic, getAllFormulas(R.string.integral_hyperbolic)),
+                        new SubSection(R.string.integral_inverse_hyperbolic, getAllFormulas(R.string.integral_inverse_hyperbolic)),
+                        new SubSection(R.string.integral_second_derivatives, getAllFormulas(R.string.integral_second_derivatives)),
+                        new SubSection(R.string.integral_absolute_value, getAllFormulas(R.string.integral_absolute_value)),
+                        new SubSection(R.string.integral_special, getAllFormulas(R.string.integral_special)),
+                        new SubSection(R.string.integral_definite, getAllFormulas(R.string.integral_definite))
                 );
             case R.string.trigonometry_title:
                 return Arrays.asList();
@@ -38,7 +46,31 @@ public class RepositoryImpl implements Repository {
 
     @Override
     public List<Formula> getAllFormulas(int subSectionId) {
-        return null;
+        return Arrays.asList(
+                new Formula("test"),
+                new Formula("test2"),
+                new Formula("test3")
+        );
+    }
+
+    @Override
+    public Section getSectionByPosition(int sectionPosition) {
+        return getAllSections().get(sectionPosition);
+    }
+
+    @Override
+    public List<SubSection> getAllSubSectionsByPosition(int sectionPosition) {
+        return getSectionByPosition(sectionPosition).subSections;
+    }
+
+    @Override
+    public SubSection getSubSectionByPosition(int sectionPosition, int subSectionPosition) {
+        return getAllSubSectionsByPosition(sectionPosition).get(subSectionPosition);
+    }
+
+    @Override
+    public List<Formula> getAllFormulasByPosition(int sectionPosition, int subSectionPosition) {
+        return getSubSectionByPosition(sectionPosition, subSectionPosition).formulas;
     }
 
 }

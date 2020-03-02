@@ -6,4 +6,15 @@
     <string name="trigonometry_description">Integral Description</string>
     <string name="differential_title">Differential</string>
     <string name="differential_description">Integral Description</string>
+    <string name="integral_rational">Rational</string>
+    <string name="integral_exponential">Exponential</string>
+    <string name="integral_logarithms">Logarithms</string>
+    <string name="integral_trigonometric">Trigonometric</string>
+    <string name="integral_inverse_trigonometric">Inverse trigonometric</string>
+    <string name="integral_hyperbolic">Hyperbolic</string>
+    <string name="integral_inverse_hyperbolic">Inverse hyperbolic</string>
+    <string name="integral_second_derivatives">Second derivatives</string>
+    <string name="integral_absolute_value">Absolute value</string>
+    <string name="integral_special">Special</string>
+    <string name="integral_definite">Definite integrals</string>
 </resources>

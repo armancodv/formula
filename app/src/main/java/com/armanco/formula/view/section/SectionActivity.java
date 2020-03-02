@@ -44,8 +44,11 @@ public class SectionActivity extends BaseActivity implements SectionContract.Vie
     @Override
     public void showViewPager(List<SubSection> subSections) {
         FragmentPagerItems.Creator creator = FragmentPagerItems.with(this);
-        for (SubSection subSection : subSections) {
-            creator.add(subSection.nameId, SubSectionFragment.class);
+        for (int i=0; i<subSections.size(); i++) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("subSectionPosition", i);
+            bundle.putInt("sectionPosition", presenter.getSectionPosition());
+            creator.add(subSections.get(i).nameId, SubSectionFragment.class, bundle);
         }
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), creator.create());
