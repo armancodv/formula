@@ -47,7 +47,9 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showActivity(SectionActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("sectionPosition", presenter.sectionPosition);
+                showActivity(SectionActivity.class, bundle);
             }
         });
     }

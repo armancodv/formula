@@ -12,6 +12,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     private List<Section> sections;
     private Section selectedSection;
+    public int sectionPosition;
 
     @Override
     public void onViewCreated() {
@@ -25,7 +26,6 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     @Override
     public void onSectionClick(int position) {
         Section section = sections.get(position);
-
     }
 
     @Override
@@ -34,6 +34,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         if(!section.equals(selectedSection)) {
             view.changeSectionData(section);
             selectedSection = section;
+            sectionPosition = position;
         }
     }
 }

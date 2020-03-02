@@ -1,5 +1,6 @@
 package com.armanco.formula.view.section;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
@@ -32,6 +33,12 @@ public class SectionActivity extends BaseActivity implements SectionContract.Vie
 
         presenter.onAttach(this);
         presenter.onViewCreated();
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            presenter.setSectionPosition(bundle.getInt("sectionPosition"));
+        }
     }
 
 

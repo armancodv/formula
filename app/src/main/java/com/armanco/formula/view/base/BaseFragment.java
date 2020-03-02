@@ -39,6 +39,11 @@ public abstract class BaseFragment extends Fragment implements BaseContract.View
     }
 
     @Override
+    public void showActivity(Class activityClass, Bundle bundle) {
+        activity.showActivity(activityClass, bundle);
+    }
+
+    @Override
     public void setStatusBarColor(int color) {
         activity.setStatusBarColor(color);
     }

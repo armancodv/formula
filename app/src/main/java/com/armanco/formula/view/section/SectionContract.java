@@ -13,5 +13,6 @@ public interface SectionContract extends BaseContract {
     }
     interface Presenter extends BaseContract.Presenter<SectionContract.View> {
         int getSectionPosition();
+        void setSectionPosition(int sectionPosition);
     }
 }

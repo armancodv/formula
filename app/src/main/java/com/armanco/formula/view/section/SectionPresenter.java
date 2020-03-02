@@ -8,7 +8,8 @@ import java.util.List;
 
 public class SectionPresenter extends BasePresenter<SectionContract.View> implements SectionContract.Presenter {
 
-    List<SubSection> subSections;
+    private List<SubSection> subSections;
+    private int sectionPosition;
     @Override
     public void onViewCreated() {
         super.onViewCreated();
@@ -18,6 +19,11 @@ public class SectionPresenter extends BasePresenter<SectionContract.View> implem
 
     @Override
     public int getSectionPosition() {
-        return 0;
+        return sectionPosition;
+    }
+
+    @Override
+    public void setSectionPosition(int sectionPosition) {
+        this.sectionPosition = sectionPosition;
     }
 }

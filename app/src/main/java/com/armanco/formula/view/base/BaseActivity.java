@@ -33,7 +33,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseCont
 
     @Override
     public void showActivity(Class activityClass) {
+        showActivity(activityClass, null);
+    }
+
+    @Override
+    public void showActivity(Class activityClass, Bundle bundle) {
         Intent myIntent = new Intent(this, activityClass);
+        if(bundle!=null) myIntent.putExtras(bundle);
         startActivity(myIntent);
     }
 
